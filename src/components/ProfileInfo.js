@@ -46,6 +46,7 @@ const Description = styled.div`
 
 const initialStateMock = {
     stars: 5,
+    reviews: 32,
     priceInfo: {
         price: 160,
         time: 50
@@ -58,7 +59,7 @@ const ProfileInfo = props => {
     const priceInfo = {
         ...initialStateMock.priceInfo
     }
-    const desc = initialStateMock.description
+    const { description, reviews }  = initialStateMock
     return (
         <div {...props}>
             <div className="flexCenter">
@@ -75,7 +76,7 @@ const ProfileInfo = props => {
                             Krakow
                         </Place>
                     </div>
-                    <StarScore stars={stars}/>
+                    <StarScore stars={stars} reviews={reviews}/>
                     <PriceInfo>
                         <span className="price">
                             {`RS ${priceInfo.price}`}
@@ -87,7 +88,7 @@ const ProfileInfo = props => {
                 </div>
             </div>
             <Description>
-                {desc}
+                {description}
             </Description>
         </div>
     )
