@@ -14,7 +14,7 @@
         "baseDate": "2019-08-08",
         "dates": [
           {
-            "freeTime": []
+            "freeTime": [null, null, null, null, null]
           },
           {
             "freeTime": ["08:00","08:30","09:00","09:30","10:00"]
