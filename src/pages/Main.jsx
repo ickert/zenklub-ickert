@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Content = styled.div`
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    background: linear-gradient(#0e7ae3, rgba(0, 0, 0, 0.6));
     background-size: cover;
     height: 100%;
     display: flex;

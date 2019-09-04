@@ -18,19 +18,38 @@ const Time = styled.div`
     }
 
 `
+const TimeEmpty = styled.div`
+    height: 47px;
+`
+
+const ColumnTime = styled.div`
+    ${props=> {
+        if (props.hoverOn) {
+            return `
+                background: rgba(14,122,227, .1)
+            `
+        }
+    }}
+`
 
 const ProfileScheduleDates = props => {
     const { schedule } = props
     if (schedule) {
         return (
-            <div className="flexContainer mt20">
+            <div className="flexContainer">
                 {schedule.data.dates.map((time, index) => {
                     return (
-                        <div key={`time-${index}`} className="flex flexContainerColumnCenter textCenter">
+                        <ColumnTime
+                                key={`time-${index}`}
+                                className="flex flexContainerColumnCenter textCenter"
+                                hoverOn={index === props.indexHover}
+                                onMouseEnter={() => props.setIndexHover(index)}
+                                onMouseLeave={() => props.setIndexHover(null)}
+                            >
                             {
                                 time.freeTime.map((freeTime, indexF) => {
                                     if (!freeTime) {
-                                        return '-'
+                                        return <TimeEmpty key={`freetime-${index+indexF}`}>-</TimeEmpty>
                                     }
                                     return (
                                         <Time key={`freetime-${index+indexF}`}>
@@ -40,7 +59,7 @@ const ProfileScheduleDates = props => {
                                 })
                             }
                             {!!time.freeTime.length ? <Time>more</Time> : '-'}
-                        </div>
+                        </ColumnTime>
                     )
                 })}
             </div>

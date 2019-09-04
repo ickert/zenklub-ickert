@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getSchedule } from 'services/ScheduleService';
+import { Arrow } from 'ui-components';
 import Dates from './ProfileScheduleDates';
 import Times from './ProfileScheduleTimes';
 import moment from 'moment';
@@ -42,6 +43,7 @@ const ProfileSchedule = props => {
     const [dates] = useState(getInitialDates())
     const [loading, setLoading] = useState(true)
     const [schedule, setSchedule] = useState(null)
+    const [indexHover, setIndexHover] = useState(null)
     useEffect(() => {
         const fetchData = async () => {
             const schedule = await getSchedule(23)
@@ -61,8 +63,14 @@ const ProfileSchedule = props => {
                     Timezone: Krakow (+1)
                 </div>
             </Header>
-            <Dates dates={dates} />
-            {loading ? <div className="textCenter mt20">Loading schedule...</div> : (<Times schedule={schedule} />)}
+            <div className="flexContainer">
+                <Arrow className="left" disabled/>
+                <div className="flex">
+                    <Dates dates={dates} indexHover={indexHover} setIndexHover={setIndexHover}/>
+                    {loading ? <div className="textCenter mt20">Loading schedule...</div> : (<Times schedule={schedule} indexHover={indexHover} setIndexHover={setIndexHover}/>)}
+                </div>
+                <Arrow className="right" />
+            </div>
         </Container>
     )
 }
