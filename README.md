@@ -1,10 +1,10 @@
 This project is a Frontend Challenge to Zenklub company made by Felipe Ickert.
 
-##Reference and goas
+## Reference and goas
 
 [Google docs Found here](https://docs.google.com/document/d/1X1Dp8eWtRWaEDDR7G8f_EghsV3iFB09uoBneTvF8fDk/edit#)
 
-## Instruction to run
+## Instructions to run
 
 First of all, be sure you are using the latest node version. Clone this project then: 
 
@@ -19,6 +19,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Now you should see a main screen with a link to the `Profile` page where everything about the challange was implemented.
 
+
+## Instructions to go to production
 
 ### `npm run build`
 
