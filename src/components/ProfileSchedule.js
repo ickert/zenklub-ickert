@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { getSchedule } from 'services/ScheduleService';
 
 const Container = styled.div`
     border-radius: 4px;
@@ -23,6 +24,16 @@ const Header = styled.div`
 `
 
 const ProfileSchedule = props => {
+    const [schedule, setSchedule] = useState({})
+    useEffect(() => {
+        const fetchData = async () => {
+            const schedule = await getSchedule()
+            debugger
+            setSchedule(schedule)
+        }
+
+        fetchData();
+    }, [])
     return (
         <Container {...props}>
             <Header>
