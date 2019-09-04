@@ -1,7 +1,16 @@
 import React from 'react';
-import { Header, Container } from 'ui-components';
+import styled from 'styled-components';
+import { Header, Genericontainer } from 'ui-components';
 import ProfileInfo from 'components/ProfileInfo';
-import ProfileSchedule from 'components/ProfileSchedule';
+import ProfileSchedule from 'components/ProfileSchedule/ProfileSchedule';
+
+const ContainerProfile = styled.div`
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+`
 
 const Profile = () => {
     return (
@@ -9,12 +18,12 @@ const Profile = () => {
             <Header>
                 Professional Profile
             </Header>
-            <Container>
-                <div className="flexContainer mt20">
-                    <ProfileInfo className="flex" />
-                    <ProfileSchedule className="flex" />
-                </div>
-            </Container>
+            <Genericontainer>
+                <ContainerProfile className="flexContainer mt60">
+                    <ProfileInfo className="flex mb40" />
+                    <ProfileSchedule className="flex mb40" />
+                </ContainerProfile>
+            </Genericontainer>
         </React.Fragment>
     )
 }

@@ -1,9 +1,9 @@
 import Header from './Header';
-import Container from './Container';
+import Genericontainer from './Genericontainer';
 import Avatar from './Avatar';
 
 export {
     Header,
-    Container,
+    Genericontainer,
     Avatar
 }

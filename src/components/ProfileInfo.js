@@ -54,7 +54,7 @@ const initialStateMock = {
 }
 
 const ProfileInfo = props => {
-    const [stars, setStars] = useState(initialStateMock.stars)
+    const [stars] = useState(initialStateMock.stars)
     const priceInfo = {
         ...initialStateMock.priceInfo
     }
